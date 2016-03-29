@@ -1,0 +1,14 @@
+<%=  form_tag(posts_path) do %>
+    <div class="post-field">
+        <%= label_tag("Title: ") %> <br/>
+        <%= text_field_tag("title") %>
+    </div>
+
+    <div class="post-field">
+        <%= label_tag("Content: ") %> <br/>
+        <%= text_area_tag("content") %>
+    </div>
+
+    <%= button_tag("Show posts") %>
+    
+<% end %>

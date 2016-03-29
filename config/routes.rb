@@ -7,8 +7,15 @@ Rails.application.routes.draw do
 
 #  get "/", to: "posts#index"
   root to: "posts#index"
+  
   get "posts/new", to: "posts#new", as: "posts_new"
   post "posts", to: "posts#create"
+
+  get "posts/edit/:id", to: "posts#edit", as:"posts_edit"
+  patch "posts/edit/:id", to: "posts#update"
+
+  get "posts/show/:id", to: "posts#show", as:"posts_show"
+  patch "posts/show/:id", to: "posts#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

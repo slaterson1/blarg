@@ -4,6 +4,8 @@
 
 <ul class="posts">
   <% posts.each do |post| %>
-    <li class="blog-post">Title: <%= post.title %></li>
+    <li class="blog-post">Title: <%= post.title %></li> 
+    <%= button_tag("Edit Post!") %>
+  
   <% end %>
 </ul>
