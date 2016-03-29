@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   patch "posts/edit/:id", to: "posts#update"
 
   get "posts/show/:id", to: "posts#show", as:"posts_show"
-  patch "posts/show/:id", to: "posts#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
