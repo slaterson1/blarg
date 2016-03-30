@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
-    posts = Post.all
-    render :index, locals: { posts: posts }
+    @posts = Post.page(params[:page]).per(5)
+    render :index
   end
 
   def new
@@ -15,18 +15,25 @@ class PostsController < ApplicationController
   end
 
   def edit
-    render :edit
+    post = Post.find(params["id"])
+    render :edit, locals: { post: post }
   end
   
   def update
-    this_post = Post.find(params[:id])
+    post = Post.find(params[:id])
     this_post.update( title: params["title"], content: params["content"])
 
-    direct_to :root
+    redirect_to :root
   end  
 
   def show 
-    post = Post.find(params[:id])
-    render :show, :locals, { post: post }
-  end  
+    @post = Post.find(params[:id])
+    render :show
+  end
+
+  def destroy
+    post = Post.find(params["id"])
+    post.destroy
+    redirect_to :root
+  end
 end

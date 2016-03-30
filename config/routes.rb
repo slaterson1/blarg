@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   get "posts/new", to: "posts#new", as: "posts_new"
   post "posts", to: "posts#create"
 
-  get "posts/edit/:id", to: "posts#edit", as:"posts_edit"
-  patch "posts/edit/:id", to: "posts#update"
-
-  get "posts/show/:id", to: "posts#show", as:"posts_show"
-
+  get "posts/:id/edit", to: "posts#edit", as:"posts_edit"
+  put "posts/:id", to: "posts#update", as: "post"
+  get "posts/:id", to: "posts#show"
+  get "posts/:id/show", to: "posts#create"
+  delete "posts/:id", to: "posts#destroy"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
